@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="1">
+
+    <TextView
+        android:text="Distance of myBeacon"
+        android:textSize="15pt"
+        android:gravity="center_horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/checkBeaconTitle" />
+
+    <TextView
+        android:text="distance"
+        android:textSize="30pt"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tvId"
+        android:layout_weight="0.55" />
+
+    <TextView
+        android:text="nowDate"
+        android:gravity="center"
+        android:textSize="10pt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/nowDate" />
+
+    <TextView
+        android:text="No Result"
+        android:gravity="center"
+        android:textSize="10pt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/valueState"
+        android:layout_weight="0.10" />
+</LinearLayout>

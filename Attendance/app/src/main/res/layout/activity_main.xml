@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/activity_main"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:text="Attendance"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="30pt"
+        android:gravity="center_horizontal"
+        android:id="@+id/mainActivity" />
+
+    <Button
+        android:text="Beacon State"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/beaconState" />
+
+    <Button
+        android:text="Login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/login" />
+
+    <Button
+        android:text="Signup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/signup" />
+</LinearLayout>
