@@ -1,4 +1,4 @@
-package net.gondor.common;
+package net.gondor.dao;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;

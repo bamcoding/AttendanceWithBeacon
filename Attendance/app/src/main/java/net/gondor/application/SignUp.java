@@ -16,6 +16,7 @@ import net.gondor.vo.UserVO;
 import gondor.net.attendance.R;
 
 /**
+ * 회원가입 생략 홈페이지에서 가입하도록.
  * Created by 206-017 on 2016-12-01.
  */
 
