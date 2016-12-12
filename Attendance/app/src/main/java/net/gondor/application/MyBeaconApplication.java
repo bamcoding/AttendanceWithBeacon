@@ -15,6 +15,8 @@ import com.estimote.sdk.Beacon;
 import com.estimote.sdk.BeaconManager;
 import com.estimote.sdk.Region;
 
+import net.gondor.application.prepare.SignIn;
+
 import java.util.List;
 import java.util.UUID;
 

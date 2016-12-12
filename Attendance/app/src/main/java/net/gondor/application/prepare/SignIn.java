@@ -1,4 +1,4 @@
-package net.gondor.application;
+package net.gondor.application.prepare;
 
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -17,11 +17,6 @@ import net.gondor.vo.UserVO;
 
 import gondor.net.attendance.R;
 
-
-/**
- * userVO를 tomcat한테 주면
- * 자신의 lectureVO와 attendaceVO를 받고 출력하는 어플리케이션을 제작한다.
- */
 public class SignIn extends AppCompatActivity {
     private UserVO userVO = new UserVO();
     private TextView stateView;
@@ -76,7 +71,7 @@ public class SignIn extends AppCompatActivity {
                             stateView.setText(s);
                         }
 
-                    }.execute(constants.LOGIN_URL, "userId", "password");
+                    }.execute(constants.LOGIN_URL);
                 }
             }
         });

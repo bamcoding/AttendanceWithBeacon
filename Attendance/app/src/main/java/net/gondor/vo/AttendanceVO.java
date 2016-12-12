@@ -1,7 +1,5 @@
 package net.gondor.vo;
 
-import java.util.Date;
-
 /**
  * 1.Who
  * 2.When
@@ -10,48 +8,64 @@ import java.util.Date;
  * 5.Attendance Result
  * * Created by 206-017 on 2016-12-07.
  */
+
 public class AttendanceVO {
 
-    private String id;
-    private UserVO user;
-    private Date checkedDateTime;
-    private LectureVO lecture;
-    private String Classification;
+    //필수값
+    private String userName;
+    private String attendanceResult;
+    private String nowDate;
 
-    public UserVO getUser() {
-        return user;
-    }
+    //null 허용
+    private String lecturePlace;
+    private String lectureTitle;
 
-    public void setUser(UserVO user) {
-        this.user = user;
-    }
 
-    public LectureVO getLecture() {
-        return lecture;
+    public String getUserName() {
+        return userName;
     }
 
-    public void setLecture(LectureVO lecture) {
-        this.lecture = lecture;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
-    public String getId() {
-        return id;
-    }
-    public void setId(String id) {
-        this.id = id;
+    public String getNowDate() {
+        return nowDate;
     }
 
-    public Date getCheckedDateTime() {
-        return checkedDateTime;
-    }
-    public void setCheckedDateTime(Date checkedDateTime) {
-        this.checkedDateTime = checkedDateTime;
+    public void setNowDate(String nowDate) {
+        this.nowDate = nowDate;
     }
 
-    public String getClassification() {
-        return Classification;
+    public String getLecturePlace() {
+        return lecturePlace;
     }
-    public void setClassification(String classification) {
-        Classification = classification;
+
+    public void setLecturePlace(String lecturePlace) {
+        if(lecturePlace==null||lecturePlace.length()==0)
+        {
+            lecturePlace = " ";
+        }
+        this.lecturePlace = lecturePlace;
+    }
+
+    public String getLectureTitle() {
+        return lectureTitle;
+    }
+
+    public void setLectureTitle(String lectureTitle) {
+        if(lectureTitle==null||lectureTitle.length()==0)
+        {
+            lectureTitle = " ";
+        }
+        this.lectureTitle = lectureTitle;
+    }
+
+    public String getAttendanceResult() {
+        return attendanceResult;
+    }
+
+    public void setAttendanceResult(String attendanceResult) {
+        this.attendanceResult = attendanceResult;
     }
 }

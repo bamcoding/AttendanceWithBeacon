@@ -6,6 +6,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 
+import net.gondor.application.prepare.SignIn;
+import net.gondor.application.prepare.SignUp;
+
 import gondor.net.attendance.R;
 
 /**
@@ -17,6 +20,8 @@ public class MainActivity extends AppCompatActivity{
     private Button beaconState;
     private Button login;
     private Button signUp;
+    private Button popUpSignIn;
+    private Button coverBtn;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -26,6 +31,8 @@ public class MainActivity extends AppCompatActivity{
         beaconState = (Button)findViewById(R.id.beaconState);
         login = (Button)findViewById(R.id.login);
         signUp = (Button)findViewById(R.id.signup);
+        popUpSignIn = (Button)findViewById(R.id.testBtn);
+        coverBtn = (Button)findViewById(R.id.coverBtn);
 
 
         beaconState.setOnClickListener(new View.OnClickListener() {
@@ -53,5 +60,20 @@ public class MainActivity extends AppCompatActivity{
             }
         });
 
+        popUpSignIn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, PopUpSignIn.class);
+                startActivity(intent);
+            }
+        });
+
+        coverBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, IntroActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 }

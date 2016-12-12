@@ -134,6 +134,7 @@ public class HttpClient {
 
         if ( SESSION_ID.length() == 0 ) {
             Map m = conn.getHeaderFields();
+
             if(m.containsKey("Set-Cookie")) {
 
                 Collection c =(Collection)m.get("Set-Cookie");

@@ -29,4 +29,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/signup" />
+
+    <Button
+        android:text="test"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/testBtn" />
+
+    <Button
+        android:text="Cover"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/coverBtn" />
 </LinearLayout>

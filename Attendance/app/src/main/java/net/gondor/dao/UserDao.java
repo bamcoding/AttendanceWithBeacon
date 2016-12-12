@@ -1,4 +1,4 @@
-package net.gondor.dao.impl;
+package net.gondor.dao;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -6,16 +6,16 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 
-import net.gondor.dao.DBHelper;
+import net.gondor.common.DBHelper;
 import net.gondor.vo.UserVO;
 
 /**
  * Created by mcjan on 2016-11-28.
  */
 
-public class UserDaoImpl extends DBHelper {
+public class UserDao extends DBHelper {
 
-    public UserDaoImpl(Context paramContext) {
+    public UserDao(Context paramContext) {
         super(paramContext);
     }
 

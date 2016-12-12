@@ -1,4 +1,4 @@
-package net.gondor.application;
+package net.gondor.application.prepare;
 
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -16,51 +16,70 @@ import net.gondor.vo.UserVO;
 import gondor.net.attendance.R;
 
 /**
- * 회원가입 생략 홈페이지에서 가입하도록.
  * Created by 206-017 on 2016-12-01.
  */
 
 public class SignUp extends AppCompatActivity {
-    @Override
+    private EditText userId;
+    private EditText password, password2;
+    private EditText userName;
+    private EditText birthday;
+    private EditText gender;
+    private EditText phoneNumber;
+    private EditText address;
+    private Button signupConfirm;
+    private Button signupCancel;
+
+
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.signup);
 
-        final EditText userId, password, password2, name;
-        Button signupConfirm, signupCancel;
-
+        final UserVO userVO = new UserVO();
         userId = (EditText)findViewById(R.id.signupId);
         password = (EditText)findViewById(R.id.signupPassword);
         password2 = (EditText)findViewById(R.id.signupPassword2);
-        name = (EditText)findViewById(R.id.signupName);
+        userName = (EditText)findViewById(R.id.signupName);
+        birthday = (EditText)findViewById(R.id.personalNumber);
+        gender = (EditText)findViewById(R.id.sex);
+        phoneNumber = (EditText)findViewById(R.id.phoneNumber);
+        address = (EditText)findViewById(R.id.address);
 
         signupConfirm = (Button)findViewById(R.id.signupConfirm);
         signupConfirm.setOnClickListener(new View.OnClickListener() {
-            @Override
             public void onClick(View v) {
-                final UserVO userVO = new UserVO();
                 userVO.setUserId(userId.getText().toString());
                 userVO.setPassword(password.getText().toString());
+                userVO.setUserName(userName.getText().toString());
+                userVO.setBirthday(birthday.getText().toString());
+                userVO.setGender(gender.getText().toString());
+                userVO.setPhoneNumber(phoneNumber.getText().toString());
+                userVO.setAddress(address.getText().toString());
+
 
                 new AsyncTask<String, Void, String>() {
-
                     @Override
-                    protected String doInBackground(String... params){
+                    protected String doInBackground(String... params) {
                         HttpClient.Builder builder = new HttpClient.Builder("POST", params[0]);
                         builder.addOrReplaceParameter("userId", userVO.getUserId());
                         builder.addOrReplaceParameter("password", userVO.getPassword());
+                        builder.addOrReplaceParameter("userName", userVO.getUserName());
+                        builder.addOrReplaceParameter("birthday", userVO.getBirthday());
+                        builder.addOrReplaceParameter("gender", userVO.getGender());
+                        builder.addOrReplaceParameter("phoneNumber", userVO.getPhoneNumber());
+                        builder.addOrReplaceParameter("address", userVO.getAddress());
+
                         HttpClient post = builder.create();
                         post.request();
                         Log.d("UserVO", post.getHttpStatusCode() + "");
                         Log.d("UserVO", post.getBody());
                         return post.getBody();
                     }
-
                     //콜백기능
                     protected void onPostExecute(String s) {
                         Toast.makeText(SignUp.this, "SignUp Success !!!", Toast.LENGTH_SHORT).show();
                     }
-                }.execute(constants.SIGNUP_URL,"userId","password");
+                }.execute(constants.SIGNUP_URL);
                 finish();
             }
         });
