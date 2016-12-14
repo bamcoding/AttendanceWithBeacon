@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.widget.TextView;
 
+import net.gondor.common.constants;
+
 import gondor.net.attendance.R;
 
 /**
@@ -19,11 +21,11 @@ public class IntroActivity extends Activity{
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.intro_activity);
+        setContentView(R.layout.activity_intro);
 
         introActivity = IntroActivity.this;
         explain = (TextView)findViewById(R.id.cover_explain);
-        explain.setText("Poject Ver0.1");
+        explain.setText(constants.INTRO_EXPLAIN);
 
         Handler handler = new Handler();
         handler.postDelayed(new Runnable() {

@@ -12,6 +12,10 @@
         android:layout_height="wrap_content"
         android:id="@+id/textView" />
 
-
-
+    <ListView
+        android:layout_gravity="center"
+        android:id="@+id/listview1"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        />
 </LinearLayout>

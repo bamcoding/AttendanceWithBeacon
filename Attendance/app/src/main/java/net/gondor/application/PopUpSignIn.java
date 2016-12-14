@@ -61,19 +61,17 @@ public class PopUpSignIn extends Activity{
 
                         //콜백기능
                         protected void onPostExecute(String s) {
-                            try {
-                                JSONObject json = new JSONObject(s);
-                                Log.i("master", "callback : " + json.get("userId"));
-                            } catch (JSONException e) {
-                                e.printStackTrace();
-                            }
-
                             if (s != null) {
                                 Toast.makeText(PopUpSignIn.this, "Login Success !!!", Toast.LENGTH_SHORT).show();
-
+                                try {
+                                    JSONObject json = new JSONObject(s);
+                                    Log.i("master", "callback : " + json.get("userId"));
+                                } catch (JSONException e) {
+                                    e.printStackTrace();
+                                }
                                 finish();
 
-                                Intent intent = new Intent(PopUpSignIn.this, MyLectureActivity.class);
+                                Intent intent = new Intent(PopUpSignIn.this, LectureActivity.class);
                                 intent.putExtra("userInfo",s);
                                 startActivity(intent);
                             }

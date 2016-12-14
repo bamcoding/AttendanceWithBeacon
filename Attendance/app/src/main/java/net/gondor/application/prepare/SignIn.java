@@ -27,7 +27,7 @@ public class SignIn extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.signin);
+        setContentView(R.layout.activity_signin);
 
         //필수 입력값
         id = (EditText)findViewById(R.id.input_userId);

@@ -4,36 +4,42 @@
     android:orientation="horizontal"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@drawable/shape">
+    android:background="@drawable/shape"
+    >
 
     <LinearLayout
-        android:layout_margin="3pt"
         android:orientation="vertical"
-        android:layout_width="239dp"
+        android:layout_marginLeft="5dp"
+        android:layout_gravity="left"
+        android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:weightSum="1">
+        android:layout_weight="0.7">
 
         <TextView
             android:text="Lecture Title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/lectureTitle" />
+            android:id="@+id/lectureTitle"
+            android:textColor="#000000"/>
 
         <TextView
             android:text="Teacher"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/lectureTeacher" />
+            android:id="@+id/lectureTeacher"
+            android:textColor="#000000"/>
 
         <TextView
             android:text="Lecture Content"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/lectureDesc"
-            android:layout_weight="0.93" />
+            android:textColor="#000000"
+            android:layout_weight="1" />
 
         <LinearLayout
             android:orientation="horizontal"
+            android:layout_gravity="bottom"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
@@ -42,32 +48,35 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/enterTime"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                android:textColor="#000000"/>
 
             <TextView
                 android:text="End Time"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/exitTime"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                android:textColor="#000000"/>
         </LinearLayout>
 
     </LinearLayout>
 
     <LinearLayout
         android:orientation="vertical"
-        android:layout_width="match_parent"
+        android:layout_gravity="right"
+        android:layout_width="wrap_content"
         android:layout_height="match_parent">
 
         <Button
             android:text="Enter"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/enterBtn" />
 
         <Button
             android:text="Exit"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/exitBtn" />
     </LinearLayout>

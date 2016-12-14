@@ -4,10 +4,14 @@ package net.gondor.application;
  * Created by 206-017 on 2016-12-12.
  */
 
-public class ListViewLecture {
+public class LectureItem {
     private String lectureTeacher;
-    private String lectureTitle, lectureDesc;
-    private String enterTime, exitTime;
+    private String lectureTitle;
+    private String lectureDesc;
+    private String enterTime;
+    private String exitTime;
+    private String enterBtn;
+    private String exitBtn;
 
     public String getLectureTeacher() {
         return lectureTeacher;
@@ -47,5 +51,21 @@ public class ListViewLecture {
 
     public void setExitTime(String exitTime) {
         this.exitTime = exitTime;
+    }
+
+    public String getEnterBtn() {
+        return enterBtn;
+    }
+
+    public void setEnterBtn(String enterBtn) {
+        this.enterBtn = enterBtn;
+    }
+
+    public String getExitBtn() {
+        return exitBtn;
+    }
+
+    public void setExitBtn(String exitBtn) {
+        this.exitBtn = exitBtn;
     }
 }

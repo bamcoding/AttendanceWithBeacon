@@ -21,11 +21,11 @@
         <activity android:name="net.gondor.application.MainActivity"/>
         <activity android:name="net.gondor.application.prepare.SignIn"/>
         <activity android:name="net.gondor.application.prepare.SignUp"/>
-        <activity android:name="net.gondor.application.MyBeaconFinder"/>
+        <activity android:name="net.gondor.application.BeaconFinder"/>
         <activity
             android:name="net.gondor.application.PopUpSignIn"
             android:theme="@android:style/Theme.Dialog"/>
-        <activity android:name="net.gondor.application.MyLectureActivity"/>
+        <activity android:name="net.gondor.application.LectureActivity"/>
 
     </application>
 

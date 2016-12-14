@@ -20,7 +20,7 @@ import net.gondor.application.prepare.SignIn;
 import java.util.List;
 import java.util.UUID;
 
-public class MyBeaconApplication extends Application {
+public class BeaconApplication extends Application {
 
     private BeaconManager beaconManager;
 

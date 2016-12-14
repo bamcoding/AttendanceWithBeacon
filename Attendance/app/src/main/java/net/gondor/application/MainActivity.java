@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity{
         beaconState.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, MyBeaconFinder.class);
+                Intent intent = new Intent(MainActivity.this, BeaconFinder.class);
                 startActivity(intent);
                 finish();
             }

@@ -1,71 +1,73 @@
 package net.gondor.vo;
 
+import java.util.Date;
+import java.util.List;
+
 /**
  * 1.Who
  * 2.When
  * 3.Where
  * 4.What
- * 5.Attendance Result
  * * Created by 206-017 on 2016-12-07.
  */
 
 public class AttendanceVO {
 
-    //필수값
-    private String userName;
-    private String attendanceResult;
-    private String nowDate;
+    private String id;
+    private String userId;
+    private List<Date> dateTime;
+    private String lectureId;
+    private String classification;
+    //시간별 구분을 보관하는 스키마가 필요
+    //로그
 
-    //null 허용
-    private String lecturePlace;
-    private String lectureTitle;
+    /**
+     *   private String userId;
+     *   private String lectureId;
+     *    private String dateTime;
+     *     private String dateTime;
+     *   private String classification;
+     * 기록
+     */
 
 
-    public String getUserName() {
-        return userName;
+    public String getId() {
+        return id;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setId(String id) {
+        this.id = id;
     }
 
-    public String getNowDate() {
-        return nowDate;
+    public String getUserId() {
+        return userId;
     }
 
-    public void setNowDate(String nowDate) {
-        this.nowDate = nowDate;
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
-    public String getLecturePlace() {
-        return lecturePlace;
+    public String getDateTime() {
+        return dateTime;
     }
 
-    public void setLecturePlace(String lecturePlace) {
-        if(lecturePlace==null||lecturePlace.length()==0)
-        {
-            lecturePlace = " ";
-        }
-        this.lecturePlace = lecturePlace;
+    public void setDateTime(String dateTime) {
+        this.dateTime = dateTime;
     }
 
-    public String getLectureTitle() {
-        return lectureTitle;
+    public String getLectureId() {
+        return lectureId;
     }
 
-    public void setLectureTitle(String lectureTitle) {
-        if(lectureTitle==null||lectureTitle.length()==0)
-        {
-            lectureTitle = " ";
-        }
-        this.lectureTitle = lectureTitle;
+    public void setLectureId(String lectureId) {
+        this.lectureId = lectureId;
     }
 
-    public String getAttendanceResult() {
-        return attendanceResult;
+    public String getClassification() {
+        return classification;
     }
 
-    public void setAttendanceResult(String attendanceResult) {
-        this.attendanceResult = attendanceResult;
+    public void setClassification(String classification) {
+        this.classification = classification;
     }
 }

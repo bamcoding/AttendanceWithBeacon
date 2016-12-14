@@ -21,7 +21,7 @@ import java.util.UUID;
 
 import gondor.net.attendance.R;
 
-public class MyBeaconFinder extends AppCompatActivity {
+public class BeaconFinder extends AppCompatActivity {
 
     private BeaconManager beaconManager;
     private Region region;
@@ -33,7 +33,7 @@ public class MyBeaconFinder extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.check_beacon);
+        setContentView(R.layout.activity_check_beacon);
 
         tvId = (TextView) findViewById(R.id.tvId);
         nowDate = (TextView) findViewById(R.id.nowDate);
@@ -59,15 +59,15 @@ public class MyBeaconFinder extends AppCompatActivity {
                     //체크 포인트
                     if(myBeaconValue >= -80){
                         if(constants.START_TIME >= currentTime){
-                            Toast.makeText(MyBeaconFinder.this, "Attendance Complete !!!",Toast.LENGTH_LONG).show();
+                            Toast.makeText(BeaconFinder.this, "Attendance Complete !!!",Toast.LENGTH_LONG).show();
                             finish();
                         }
                         else if(constants.FINISH_TIME <= currentTime){
-                            Toast.makeText(MyBeaconFinder.this, "Please go home !!!",Toast.LENGTH_LONG).show();
+                            Toast.makeText(BeaconFinder.this, "Please go home !!!",Toast.LENGTH_LONG).show();
                             finish();
                         }
                         else {
-                            Toast.makeText(MyBeaconFinder.this, "You are too late !!!",Toast.LENGTH_LONG).show();
+                            Toast.makeText(BeaconFinder.this, "You are too late !!!",Toast.LENGTH_LONG).show();
                             finish();
                         }
                     }
