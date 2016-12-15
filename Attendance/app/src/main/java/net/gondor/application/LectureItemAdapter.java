@@ -45,8 +45,6 @@ public class LectureItemAdapter extends BaseAdapter {
             holder.lectureTeacher = (TextView) convertView.findViewById(R.id.lectureTeacher);
             holder.enterTime = (TextView) convertView.findViewById(R.id.enterTime);
             holder.exitTime = (TextView) convertView.findViewById(R.id.exitTime);
-            holder.enterBtn = (Button) convertView.findViewById(R.id.enterBtn);
-            holder.exitBtn = (Button) convertView.findViewById(R.id.exitBtn);
 
             convertView.setTag(holder);
         }
@@ -63,8 +61,6 @@ public class LectureItemAdapter extends BaseAdapter {
         holder.lectureTeacher.setText(listViewItem.getLectureTeacher());
         holder.enterTime.setText(listViewItem.getEnterTime());
         holder.exitTime.setText(listViewItem.getExitTime());
-        holder.enterBtn.setText(listViewItem.getEnterBtn());
-        holder.exitBtn.setText(listViewItem.getExitBtn());
 
         return convertView;
     }
@@ -85,8 +81,6 @@ public class LectureItemAdapter extends BaseAdapter {
         public TextView lectureTeacher;
         public TextView enterTime;
         public TextView exitTime;
-        public Button enterBtn;
-        public Button exitBtn;
     }
 
 }

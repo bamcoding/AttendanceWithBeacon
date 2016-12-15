@@ -10,8 +10,6 @@ public class LectureItem {
     private String lectureDesc;
     private String enterTime;
     private String exitTime;
-    private String enterBtn;
-    private String exitBtn;
 
     public String getLectureTeacher() {
         return lectureTeacher;
@@ -51,21 +49,5 @@ public class LectureItem {
 
     public void setExitTime(String exitTime) {
         this.exitTime = exitTime;
-    }
-
-    public String getEnterBtn() {
-        return enterBtn;
-    }
-
-    public void setEnterBtn(String enterBtn) {
-        this.enterBtn = enterBtn;
-    }
-
-    public String getExitBtn() {
-        return exitBtn;
-    }
-
-    public void setExitBtn(String exitBtn) {
-        this.exitBtn = exitBtn;
     }
 }

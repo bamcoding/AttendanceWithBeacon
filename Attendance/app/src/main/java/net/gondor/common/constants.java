@@ -5,12 +5,14 @@ package net.gondor.common;
  */
 
 public interface constants {
-    public static final String LOGIN_URL ="http://10.225.152.108:8080/NormalPage/doSignInForAndroid";
-    public static final String SIGNUP_URL ="http://10.225.152.176:8080/Android/signup.jsp";
-    public static final String GET_LECTURES_URL ="http://10.225.152.108:8080/";
+    public static final String LOGIN_URL ="http://10.225.152.109:8080/NormalPage/doSignInForAndroid";
+    public static final String SIGNUP_URL ="http://10.225.152.115:8080/Android/signup.jsp";
+    public static final String GET_LECTURES_URL ="http://10.225.152.109:8080//NormalPage/doLecturesForAndroid";
 
     public static final String INTRO_EXPLAIN ="Poject Ver0.1";
 
     public static final int START_TIME = 90000;
     public static final int FINISH_TIME = 160000;
+
+    public static final String ROOM_204 = "74278BDA-B644-4520-8F0C-720EAF059935";
 }

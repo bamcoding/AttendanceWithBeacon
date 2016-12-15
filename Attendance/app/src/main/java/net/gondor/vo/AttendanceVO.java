@@ -15,21 +15,9 @@ public class AttendanceVO {
 
     private String id;
     private String userId;
-    private List<Date> dateTime;
+    private String dateTime;
     private String lectureId;
     private String classification;
-    //시간별 구분을 보관하는 스키마가 필요
-    //로그
-
-    /**
-     *   private String userId;
-     *   private String lectureId;
-     *    private String dateTime;
-     *     private String dateTime;
-     *   private String classification;
-     * 기록
-     */
-
 
     public String getId() {
         return id;

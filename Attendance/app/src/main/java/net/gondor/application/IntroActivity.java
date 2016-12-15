@@ -33,7 +33,7 @@ public class IntroActivity extends Activity{
                 Intent intent = new Intent(IntroActivity.this, PopUpSignIn.class);
                 startActivity(intent);
             }
-        }, 2000);
+        }, 1000);
     }
 }
 

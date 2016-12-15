@@ -81,7 +81,8 @@ public class BeaconFinder extends AppCompatActivity {
         });
 
         region = new Region("ranged region",
-                UUID.fromString("74278BDA-B644-4520-8F0C-720EAF059935"), null, null); // 본인이 연결할 Beacon의 ID와 Major / Minor Code를 알아야 한다.
+                UUID.fromString(constants.ROOM_204), null, null);
+                //흰 비콘 아이디
     }
 
     @Override

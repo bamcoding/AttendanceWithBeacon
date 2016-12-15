@@ -1,4 +1,4 @@
-package net.gondor.application;
+package net.gondor.application.prepare;
 
 /**
  * Created by 206-017 on 2016-12-07.
@@ -16,6 +16,7 @@ import com.estimote.sdk.BeaconManager;
 import com.estimote.sdk.Region;
 
 import net.gondor.application.prepare.SignIn;
+import net.gondor.common.constants;
 
 import java.util.List;
 import java.util.UUID;
@@ -37,10 +38,7 @@ public class BeaconApplication extends Application {
         beaconManager.connect(new BeaconManager.ServiceReadyCallback() {
             @Override
             public void onServiceReady() {
-                beaconManager.startMonitoring(new Region(
-                        "monitored region",
-                        UUID.fromString("74278BDA-B644-4520-8F0C-720EAF059935"), // 본인이 연결할 Beacon의 ID와 Major / Minor Code를 알아야 한다.
-                        0, 0));
+                beaconManager.startMonitoring(new Region("monitored region", UUID.fromString(constants.ROOM_204), 0, 0));
             }
         });
 

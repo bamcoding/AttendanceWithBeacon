@@ -41,11 +41,11 @@ public class PopUpSignIn extends Activity{
                 final String userId2 = userId.getText().toString();
                 final String userPassword2 = userPassword.getText().toString();
 
-                Log.i("master","button has been clicked");
+                Log.i("master","Login Button has been Clicked");
 
                 //null이면 메시지 출력
                 if(userId2 == null || userId2.length() == 0 || userPassword2 == null || userPassword2.length() == 0){
-                    Toast.makeText(PopUpSignIn.this, "Please enter the required input value correctly.", Toast.LENGTH_SHORT).show();
+                   Toast.makeText(PopUpSignIn.this, "Please enter the required input value correctly.", Toast.LENGTH_SHORT).show();
                 }else {
                     new AsyncTask<String, Void, String>() {
                         @Override
@@ -55,33 +55,34 @@ public class PopUpSignIn extends Activity{
                             builder.addOrReplaceParameter("userPassword", userPassword2);
                             HttpClient post = builder.create();
                             post.request();
-                            Log.i("master","post");
+                            Log.d("master","The Post Works");
+                            Log.d("master","userId : "+ userId2);
+                            Log.d("master","userPassword : "+ userPassword2);
                             return post.getBody();
                         }
 
                         //콜백기능
                         protected void onPostExecute(String s) {
-                            if (s != null) {
+                            Log.d("master","Post CallBack Works");
+                            Log.d("master", "Callback String : " + s);
+
+                            if (s.equals("") || s==null || s.length()==0){
+                                Log.i("master","Login Fail.");
+                                Toast.makeText(PopUpSignIn.this, "Login Fail...", Toast.LENGTH_SHORT).show();
+                            }
+                            else {
+                                Log.i("master","Login Success.");
                                 Toast.makeText(PopUpSignIn.this, "Login Success !!!", Toast.LENGTH_SHORT).show();
-                                try {
-                                    JSONObject json = new JSONObject(s);
-                                    Log.i("master", "callback : " + json.get("userId"));
-                                } catch (JSONException e) {
-                                    e.printStackTrace();
-                                }
-                                finish();
 
                                 Intent intent = new Intent(PopUpSignIn.this, LectureActivity.class);
                                 intent.putExtra("userInfo",s);
                                 startActivity(intent);
-                            }
-                            else {
-                                Toast.makeText(PopUpSignIn.this, "Login Fail...", Toast.LENGTH_SHORT).show();
 
+                                finish();
                             }
                         }
                     }.execute(constants.LOGIN_URL);
-                }
+               }
             }
         });
     }
