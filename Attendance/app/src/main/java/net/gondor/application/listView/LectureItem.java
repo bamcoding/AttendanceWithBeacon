@@ -1,4 +1,4 @@
-package net.gondor.application;
+package net.gondor.application.listView;
 
 /**
  * Created by 206-017 on 2016-12-12.

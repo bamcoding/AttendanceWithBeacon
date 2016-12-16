@@ -18,10 +18,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="net.gondor.application.MainActivity"/>
+        <activity android:name="net.gondor.application.prepare.MainActivity"/>
         <activity android:name="net.gondor.application.prepare.SignIn"/>
         <activity android:name="net.gondor.application.prepare.SignUp"/>
-        <activity android:name="net.gondor.application.BeaconFinder"/>
+        <activity android:name="net.gondor.application.prepare.BeaconFinder"/>
         <activity
             android:name="net.gondor.application.PopUpSignIn"
             android:theme="@android:style/Theme.Dialog"/>

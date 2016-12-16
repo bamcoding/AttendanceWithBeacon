@@ -1,4 +1,4 @@
-package net.gondor.application;
+package net.gondor.application.prepare;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -6,8 +6,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 
-import net.gondor.application.prepare.SignIn;
-import net.gondor.application.prepare.SignUp;
+import net.gondor.application.IntroActivity;
+import net.gondor.application.PopUpSignIn;
 
 import gondor.net.attendance.R;
 

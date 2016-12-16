@@ -1,4 +1,4 @@
-package net.gondor.application;
+package net.gondor.application.prepare;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
