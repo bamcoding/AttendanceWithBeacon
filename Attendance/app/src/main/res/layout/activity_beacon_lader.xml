@@ -8,11 +8,35 @@
         android:gravity="center"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/textView"
+        android:id="@+id/beaconTitle"
         android:background="#009999"
         android:textColor="#ffffff"
         android:textStyle="bold"
         android:layout_marginBottom="5pt"/>
 
+    <TextView
+        android:text="distance"
+        android:textSize="30pt"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tvId"
+        android:layout_weight="0.55" />
 
+    <TextView
+        android:text="nowDate"
+        android:gravity="center"
+        android:textSize="10pt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/nowDate" />
+
+    <TextView
+        android:text="No Result"
+        android:gravity="center"
+        android:textSize="10pt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/valueState"
+        android:layout_weight="0.10" />
 </LinearLayout>

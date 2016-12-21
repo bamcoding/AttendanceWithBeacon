@@ -1,15 +1,54 @@
-package net.gondor.application.listView;
+package net.gondor.application;
 
 /**
  * Created by 206-017 on 2016-12-12.
  */
 
 public class LectureItem {
+    private String lectureId;
     private String lectureTeacher;
     private String lectureTitle;
     private String lectureDesc;
     private String enterTime;
     private String exitTime;
+
+    //비콘 정보 받아오기
+    private String beaconId;
+    private int beaconMajor;
+    private int beaconMinor;
+
+
+    public String getLectureId() {
+        return lectureId;
+    }
+
+    public void setLectureId(String lectureId) {
+        this.lectureId = lectureId;
+    }
+
+    public String getBeaconId() {
+        return beaconId;
+    }
+
+    public void setBeaconId(String beaconId) {
+        this.beaconId = beaconId;
+    }
+
+    public int getBeaconMajor() {
+        return beaconMajor;
+    }
+
+    public void setBeaconMajor(int beaconMajor) {
+        this.beaconMajor = beaconMajor;
+    }
+
+    public int getBeaconMinor() {
+        return beaconMinor;
+    }
+
+    public void setBeaconMinor(int beaconMinor) {
+        this.beaconMinor = beaconMinor;
+    }
 
     public String getLectureTeacher() {
         return lectureTeacher;

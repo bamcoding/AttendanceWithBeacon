@@ -1,0 +1,51 @@
+<Biz>
+
+public void method(UsersSchema user, LecturesSchema lecture){
+	
+	AttendancesSchema attendance = new AttendancesSchema();
+
+	attendance.setUsersSchema(user);
+	attendance.setLecturesSchema(lecture);
+		
+	//나타낼 형식
+	SimpleDateFormat customDate = new SimpleDateFormat("");
+	//문자열로 현재시간을 형식에 맞게 dateTime에 저장한다.
+	String dateTime = customDate.format(new Date());
+	//시간을 비교하기 위해서 문자열을 정수로 변환한다.
+	int dateTime2 = parseInt("dateTime");
+	
+	
+	if(오늘 날짜로 리스트를 뽑았을때 결과가 null이라면){
+		/**
+		classification
+		조건별로 다른 값이 저장된다.
+		if(9시 이전){
+			classification = "입실";
+		} else if(18시 이전){
+			classification = "지각";
+		} else {
+			classification = "결석";
+		} 
+		**/
+	} else if(결과가 null이 아니고 결과가 입실이면){
+		if(16시 이전){
+			classification = "조퇴";
+		}else{
+			classification = "퇴실"
+		}
+	}
+	
+	attendanceDao.method(attendance);
+
+
+}
+
+
+
+<AttendancesSchema>
+
+    private String id;
+    private String userId;
+    private String dateTime;
+    private String lectureId;
+    private String classification;

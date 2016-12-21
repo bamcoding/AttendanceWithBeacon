@@ -26,6 +26,7 @@
             android:name="net.gondor.application.PopUpSignIn"
             android:theme="@android:style/Theme.Dialog"/>
         <activity android:name="net.gondor.application.LectureActivity"/>
+        <activity android:name="net.gondor.application.BeaconLaderActivity"/>
 
     </application>
 
