@@ -7,6 +7,8 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -41,6 +43,12 @@ public class LectureActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lecture_list);
+    }
+
+
+    @Override
+    protected void onResume() {
+        super.onResume();
 
         //리스트뷰 참조.
         final ListView listView = (ListView)findViewById(R.id.listview1) ;
@@ -71,34 +79,33 @@ public class LectureActivity extends Activity {
                         builder.addOrReplaceParameter("userId", jsonUserId);
                         HttpClient post = builder.create();
                         post.request();
-                        Log.d("master","Sent a UserId, For Lectures ");
+                        Log.d("master","Sent a UserId, for Lectures");
                         return post.getBody();
                     }
 
                     //콜백기능
                     protected void onPostExecute(String s) {
-                        Log.d("master","Lecture_Callback Works"+ s);
+                        Log.d("master","Callback String : "+ s);
                         if (s.equals("") || s.length() == 0 || s == null) {
                             Toast.makeText(LectureActivity.this, "your lecture is none", Toast.LENGTH_SHORT).show();
-                            Log.i("master","your lecture is none.");
+                            Log.i("master","Your Lecture is None.");
                         }
                         else {
-                            Log.i("master","get your lecture info.");
+                            Log.i("master","Get your LectureInfo");
                             JSONArray jsonArray = null;
                             try {
                                 jsonArray = new JSONArray(s);
                                 int countLectures = jsonArray.length();
-                                Log.d("master","the count of your lectures : "+jsonArray.length());
+                                Log.d("master","The Count Of Your Lectures : "+jsonArray.length()+"================");
 
                                 for(int i = 0; i < countLectures; i++){
-                                    Log.d("master", jsonArray.getJSONObject(i).getString("lectureName(")
-                                            +jsonArray.getJSONObject(i).getJSONObject("instructor").getJSONObject("user").getString("userName")+"): "
-                                            +jsonArray.getJSONObject(i).getString("lectureContent"));
+                                    Log.d("master", "- "+jsonArray.getJSONObject(i).getString("lectureName")+
+                                            "("+jsonArray.getJSONObject(i).getJSONObject("instructor").getJSONObject("user").getString("userName")+"): "+
+                                            jsonArray.getJSONObject(i).getString("lectureContent"));
+                                    Log.d("master", "- "+jsonArray.getJSONObject(i).getString("beaconId")+"("+jsonArray.getJSONObject(i).getInt("beaconMajor")+
+                                            ", "+jsonArray.getJSONObject(i).getInt("beaconMinor")+")");
 
-                                    Log.d("master", jsonArray.getJSONObject(i).getString("beaconId")+"("
-                                            +jsonArray.getJSONObject(i).getInt("beaconMajor")+", "+jsonArray.getJSONObject(i).getInt("beaconMinor")+")");
                                     lectureItem = new LectureItem();
-
                                     lectureItem.setLectureId(jsonArray.getJSONObject(i).getString("id"));
                                     lectureItem.setLectureTitle(jsonArray.getJSONObject(i).getString("lectureName"));
                                     lectureItem.setLectureDesc(jsonArray.getJSONObject(i).getString("lectureContent"));
@@ -106,8 +113,6 @@ public class LectureActivity extends Activity {
                                     lectureItem.setBeaconId(jsonArray.getJSONObject(i).getString("beaconId"));
                                     lectureItem.setBeaconMajor(jsonArray.getJSONObject(i).getInt("beaconMajor"));
                                     lectureItem.setBeaconMinor(jsonArray.getJSONObject(i).getInt("beaconMinor"));
-
-                                    //출석정보
                                     lectureItem.setEnterTime("0900");
                                     lectureItem.setExitTime("1800");
                                     lectureItemList.add(lectureItem);

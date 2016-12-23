@@ -55,15 +55,12 @@ public class PopUpSignIn extends Activity{
                             builder.addOrReplaceParameter("userPassword", userPassword2);
                             HttpClient post = builder.create();
                             post.request();
-                            Log.d("master","The Post Works");
-                            Log.d("master","userId : "+ userId2);
-                            Log.d("master","userPassword : "+ userPassword2);
+                            Log.d("master","userId : "+ userId2 +", userPassword : "+ userPassword2);
                             return post.getBody();
                         }
 
                         //콜백기능
                         protected void onPostExecute(String s) {
-                            Log.d("master","Post CallBack Works");
                             Log.d("master", "Callback String : " + s);
 
                             if (s.equals("") || s==null || s.length()==0){
@@ -74,10 +71,10 @@ public class PopUpSignIn extends Activity{
                                 Log.i("master","Login Success.");
                                 Toast.makeText(PopUpSignIn.this, "Login Success !!!", Toast.LENGTH_SHORT).show();
 
+                                //액티비티를 전환하면서 데이터를 전달한다.
                                 Intent intent = new Intent(PopUpSignIn.this, LectureActivity.class);
                                 intent.putExtra("userInfo",s);
                                 startActivity(intent);
-
                                 finish();
                             }
                         }

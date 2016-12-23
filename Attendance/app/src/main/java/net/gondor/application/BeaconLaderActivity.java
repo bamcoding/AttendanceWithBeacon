@@ -17,6 +17,9 @@ import net.gondor.application.prepare.BeaconFinder;
 import net.gondor.common.HttpClient;
 import net.gondor.common.constants;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
@@ -41,6 +44,7 @@ public class BeaconLaderActivity extends Activity{
     private int beaconMajor;
     private int beaconMinor;
     private String lectureId;
+    private String userInfo;
     private String userId;
 
     @Override
@@ -48,17 +52,25 @@ public class BeaconLaderActivity extends Activity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_beacon_lader);
 
-        Log.d("master","start activity");
+        Log.d("master","BEACON Activity");
         beaconId = getIntent().getStringExtra("beaconId");
-        Log.d("master","beaconId:"+beaconId );
+        Log.d("master","- beaconId : "+beaconId );
         beaconMajor = getIntent().getIntExtra("beaconMajor",0);
-        Log.d("master","beaconMajor: "+beaconMajor);
+        Log.d("master","- beaconMajor : "+beaconMajor);
         beaconMinor = getIntent().getIntExtra("beaconMinor",0);
         lectureId = getIntent().getStringExtra("lectureId");
-        Log.d("master","lectureId: "+lectureId);
-        userId = getIntent().getStringExtra("userId");
-        Log.d("master","userId: "+userId);
+        Log.d("master","- lectureId : "+lectureId);
+        userInfo = getIntent().getStringExtra("userInfo");
+        Log.d("master","- userInfo : "+userInfo);
 
+        JSONObject jsonUser = null;
+        try {
+            jsonUser = new JSONObject(userInfo);
+            userId = (String) jsonUser.get("userId");
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        Log.d("master","- userId : "+userId);
 
         tvId = (TextView) findViewById(R.id.tvId);
         nowDate = (TextView) findViewById(R.id.nowDate);
@@ -79,13 +91,14 @@ public class BeaconLaderActivity extends Activity{
                     SimpleDateFormat formatTime = new SimpleDateFormat("HHmmss");
                     String time = formatTime.format(new Date());
                     int currentTime = Integer.parseInt(time);
-                    valueState.setText(currentTime+"");
+                    valueState.setText(currentTime + "");
 
                     //현재 시간
                     SimpleDateFormat formatDate = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss", Locale.KOREA);
                     String currentDate = formatDate.format(new Date());
                     nowDate.setText(currentDate);
 
+                    if(myBeaconValue>-80){
 
                     new AsyncTask<String, Void, String>() {
                         @Override
@@ -100,14 +113,24 @@ public class BeaconLaderActivity extends Activity{
 
                         //콜백기능
                         protected void onPostExecute(String s) {
-                            Toast.makeText(BeaconLaderActivity.this, "비콘을 인식하였습니다.", Toast.LENGTH_SHORT).show();
-                            finish();
+                            if (s.equals("true")) {
+                                Toast.makeText(BeaconLaderActivity.this, "비콘을 인식하였습니다.", Toast.LENGTH_SHORT).show();
+                                Log.i("master", "Access to AttendanceList : TRUE");
+                                finish();
+                            } else {
+                                Toast.makeText(BeaconLaderActivity.this, "비콘을 인식에 실패하였습니다.", Toast.LENGTH_SHORT).show();
+                                Log.i("master", "Access to AttendanceList : FAIL");
+                                finish();
+                            }
+
                         }
                     }.execute(constants.CHECK_ATTENDANCE_URL);
+
+                }
+
                 }
             }
         });
-
         //비콘을 특정합니다.
         region = new Region("ranged region",
                 UUID.fromString(beaconId), beaconMajor, beaconMinor);

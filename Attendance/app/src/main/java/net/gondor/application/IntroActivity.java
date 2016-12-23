@@ -23,11 +23,18 @@ public class IntroActivity extends Activity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_intro);
 
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
         introActivity = IntroActivity.this;
         explain = (TextView)findViewById(R.id.cover_explain);
         explain.setText(constants.INTRO_EXPLAIN);
 
         Handler handler = new Handler();
+
         handler.postDelayed(new Runnable() {
             public void run() {
                 Intent intent = new Intent(IntroActivity.this, PopUpSignIn.class);
